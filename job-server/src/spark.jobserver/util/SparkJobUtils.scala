@@ -35,6 +35,10 @@ object SparkJobUtils {
       conf.set("spark.executor.memory", nodeMemStr)
     }
 
+    for (role <- Try(contextConfig.getString("spark.mesos.role"))) {
+      conf.set("spark.mesos.role", role)
+    }
+
     Try(config.getString("spark.home")).foreach { home => conf.setSparkHome(home) }
 
     // Set the Jetty port to 0 to find a random port

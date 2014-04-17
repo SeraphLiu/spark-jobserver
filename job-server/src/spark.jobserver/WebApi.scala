@@ -104,6 +104,7 @@ class WebApi(system: ActorSystem, config: Config, port: Int,
          *
          * @optional @param num-cpu-cores Int - Number of cores the context will use
          * @optional @param mem-per-node String - -Xmx style string (512m, 1g, etc) for max memory per node
+         * @optional @param spark.mesos.role String - Role setting for the Mesos cluster
          * @return the string "OK", or error if context exists or could not be initialized
          */
         path(Segment) { (contextName) =>
